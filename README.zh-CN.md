@@ -126,11 +126,14 @@ export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
 
 ```mermaid
 flowchart TD
-    Req[用户请求] --> P1["阶段 1 — 理解<br/>调度 explore 搜索代码库"]
-    P1 --> P2["阶段 2 — 设计<br/>综合分析，与用户确认，规划"]
-    P2 --> P3["阶段 3 — 执行<br/>调度 editor 执行修改"]
-    P3 --> P4["阶段 4 — 验证和汇报<br/>调度 verify 做对抗性测试"]
-    P4 --> Done[向用户汇报]
+    Req["用户请求"] --> P1["explore — 搜索代码库<br/>读取约定 + 架构"]
+    P1 -->|"findings"| P2{"Solo 综合分析<br/>+ 确认方案"}
+    P2 -->|"dispatch"| P3["editor — 执行修改"]
+    P3 -->|"changes"| P4{"verify — 对抗性测试<br/>跑测试 + 写探针 + 猎边界"}
+    P4 -->|"PASS"| Done["向用户汇报"]
+    P4 -->|"FAIL → editor 修复<br/>max 2 轮"| P3
+    P2 -.->|"按需"| Rev["reviewer — 代码审查"]
+    Rev -.-> Done
 ```
 
 ### 文件结构

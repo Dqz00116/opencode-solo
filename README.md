@@ -126,11 +126,14 @@ export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
 
 ```mermaid
 flowchart TD
-    Req[User request] --> P1["Phase 1 — Understand<br/>dispatch explore to map codebase"]
-    P1 --> P2["Phase 2 — Design<br/>synthesize, confirm with user, plan"]
-    P2 --> P3["Phase 3 — Execute<br/>dispatch editor to make changes"]
-    P3 --> P4["Phase 4 — Verify and Report<br/>dispatch verify for adversarial testing"]
-    P4 --> Done[Report to user]
+    Req["User request"] --> P1["explore — map codebase<br/>read conventions + architecture"]
+    P1 -->|"findings"| P2{"Solo synthesis<br/>+ confirm plan"}
+    P2 -->|"dispatch"| P3["editor — make changes"]
+    P3 -->|"changes"| P4{"verify — adversarial testing<br/>run tests + write probes + hunt edges"}
+    P4 -->|"PASS"| Done["Report to user"]
+    P4 -->|"FAIL → editor fix<br/>max 2 rounds"| P3
+    P2 -.->|"on-demand"| Rev["reviewer — code review"]
+    Rev -.-> Done
 ```
 
 ### File Structure
