@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Map each agent to a model from your configured providers.
+  // Format: "provider-id/model-id"
+  // Variant values (max, medium, high) are provider-specific — check your provider's supported variants.
+  "agent": {
+    "verify":    { "model": "your-provider/strong-model",  "variant": "max" },
+    "explore":   { "model": "your-provider/fast-model",    "variant": "medium" },
+    "editor":    { "model": "your-provider/fast-model",    "variant": "medium" },
+    "general":   { "model": "your-provider/strong-model",  "variant": "high" },
+    "reviewer":  { "model": "your-provider/strong-model",  "variant": "high" },
+    "observer":  { "model": "your-provider/vision-model" }
+  }
+}
