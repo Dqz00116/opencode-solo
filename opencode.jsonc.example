@@ -1,14 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  // Map each agent to a model from your configured providers.
-  // Format: "provider-id/model-id"
-  // Variant values (max, medium, high) are provider-specific — check your provider's supported variants.
+  // Set the default agent and primary model
+  "model": "your-provider/strong-model",
+  "default_agent": "solo",
+  // Map each agent to a model. Variant controls reasoning depth (provider-specific).
+  // Recommended: max for solo/verify, high for reviewer/general, medium for explore/editor.
+  // Tested with: deepseek/deepseek-v4-pro (strong) + deepseek/deepseek-v4-flash (fast)
   "agent": {
-    "verify":    { "model": "your-provider/strong-model",  "variant": "max" },
-    "explore":   { "model": "your-provider/fast-model",    "variant": "medium" },
-    "editor":    { "model": "your-provider/fast-model",    "variant": "medium" },
-    "general":   { "model": "your-provider/strong-model",  "variant": "high" },
-    "reviewer":  { "model": "your-provider/strong-model",  "variant": "high" },
-    "observer":  { "model": "your-provider/vision-model" }
+    "solo":     { "model": "your-provider/strong-model",  "variant": "max" },
+    "verify":   { "model": "your-provider/strong-model",  "variant": "max" },
+    "reviewer": { "model": "your-provider/strong-model",  "variant": "high" },
+    "general":  { "model": "your-provider/strong-model",  "variant": "high" },
+    "explore":  { "model": "your-provider/fast-model",    "variant": "medium" },
+    "editor":   { "model": "your-provider/fast-model",    "variant": "medium" },
+    "observer": { "model": "your-provider/vision-model" }
   }
 }

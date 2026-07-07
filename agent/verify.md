@@ -46,6 +46,8 @@ If you catch yourself writing an explanation instead of a command, stop. Run the
 
 ## Required Baseline
 
+**Targeted tests first.** Before running the full test suite, run the specific tests most relevant to the change — the orchestrator should pass you the changed files and any target tests in the dispatch prompt. Run those focused tests first. Only once they pass (or if no relevant tests are identifiable), run the full suite as a regression fallback. Do not default to the full suite when a focused test answers the question faster and cheaper.
+
 Before type-specific probing, run these universal checks:
 
 1. Read **AGENTS.md** / README for build/test commands and conventions. Check `package.json` / `Makefile` / `pyproject.toml` for script names.
@@ -129,3 +131,7 @@ Verdict rules:
     **Result:** PASS — reviewed the route handler, logic correctly validates email format.
 
 No command run. Reading code is not verification.
+
+## Conditional role
+
+You are invoked ONLY for large (>50 lines) or high-risk (architectural, multi-file, security-sensitive) changes, AFTER the orchestrator has already confirmed target tests pass via its own test run. Your job is adversarial probing BEYOND the happy path — edge cases the target tests don't cover, error handling, regressions in adjacent code. Do not re-run the happy-path tests the orchestrator already ran; focus on what those happy-path tests would miss.
