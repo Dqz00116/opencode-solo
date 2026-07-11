@@ -13,6 +13,11 @@
     "general":  { "model": "your-provider/strong-model",  "variant": "high" },
     "explore":  { "model": "your-provider/fast-model",    "variant": "medium" },
     "editor":   { "model": "your-provider/fast-model",    "variant": "medium" },
-    "observer": { "model": "your-provider/vision-model" }
+    "observer": { "model": "your-provider/vision-model" },
+    "research": { "model": "your-provider/strong-model", "variant": "max" },
+    "critic":   { "model": "your-provider/strong-model", "variant": "high" },
+    "survey":   { "model": "your-provider/fast-model",   "variant": "medium" },
+    "scout":    { "model": "your-provider/fast-model",   "variant": "medium" },
+    "writer":   { "model": "your-provider/fast-model",   "variant": "medium" }
   }
 }

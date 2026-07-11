@@ -174,3 +174,25 @@ All `.md` files contain only behavior (prompt, permissions, mode). Models are co
 
 - [opencode](https://opencode.ai)
 - At least one LLM provider configured
+
+## Research variant (`code-research` branch)
+
+This branch adds a **research** primary agent for investigative work (initially code analysis), reusing Solo's expert-orchestrates + fast-executes pattern. The orchestrator builds a research contract, dispatches specialized subagents to gather evidence, and decides on the **critic's raw static-query output** rather than test results. This branch is local-only (not pushed to remote).
+
+| Agent | Model tier | Role |
+|---|---|---|
+| research (primary) | strong / max | orchestrator: builds research contract, dispatches, decides on critic's raw output |
+| survey | fast / medium | internal code surveyor, `[code:file:L]` pointers |
+| scout | fast / medium | external web recon, `[web:url]` pointers |
+| critic | strong / high | adversarial verifier, re-runs queries + pastes raw output, last word |
+| writer | fast / medium | report composer, writes `docs/research/**` |
+| observer (reused) | vision | reads diagrams |
+| general (reused) | — | fallback |
+
+**How it differs from solo:**
+
+- Solo's signal = test output; Research's signal = critic's report containing pasted raw static-query output.
+- Solo fixes bugs; Research produces verified analysis reports.
+- Both share the closed-loop, permission-gated, expert-orchestrates-fast-executes design.
+- Solo's own agents (solo/editor/verify/reviewer/explore) are kept unchanged on this branch — both modes remain usable.
+- Honest limitation: existence/structural claims reach Solo-level objective closure via raw query output; interpretive claims (patterns, intent) rely on expert judgment + confidence labeling and are explicitly separated in the report.
