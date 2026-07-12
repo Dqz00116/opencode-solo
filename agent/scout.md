@@ -3,6 +3,7 @@ description: "External web reconnaissance subagent (fast model). Looks up framew
 mode: subagent
 permission:
   "*": deny
+  external_directory: allow
   websearch: allow
   webfetch: allow
   read: allow

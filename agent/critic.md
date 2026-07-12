@@ -3,6 +3,7 @@ description: "Adversarial verification subagent (expert model). Re-reads cited c
 mode: subagent
 permission:
   "*": deny
+  external_directory: allow
   read: allow
   glob: allow
   grep: allow
