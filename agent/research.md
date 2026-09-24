@@ -5,17 +5,17 @@ permission:
   read: deny
   write: deny
   edit: deny
-  apply_patch: deny
+  patch: deny
   glob: deny
   grep: deny
-  bash: deny
+  shell: deny
   webfetch: deny
   websearch: deny
   skill: deny
   lsp: deny
   question: allow
   todowrite: allow
-  task:
+  subagent:
     "*": deny
     survey: allow
     scout: allow

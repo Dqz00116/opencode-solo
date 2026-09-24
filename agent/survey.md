@@ -7,12 +7,12 @@ permission:
   read: allow
   glob: allow
   grep: allow
-  bash: deny
+  shell: deny
   webfetch: deny
   websearch: deny
   edit: deny
   write: deny
-  task: deny
+  subagent: deny
   todowrite: deny
 ---
 # Survey — Internal Code Surveyor

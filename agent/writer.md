@@ -9,10 +9,10 @@ permission:
   grep: allow
   edit: allow
   write: allow
-  bash: deny
+  shell: deny
   webfetch: deny
   websearch: deny
-  task: deny
+  subagent: deny
   todowrite: deny
 ---
 

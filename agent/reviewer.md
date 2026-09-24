@@ -8,7 +8,7 @@ permission:
   read: allow
   glob: allow
   grep: allow
-  bash: allow
+  shell: allow
   list: allow
   external_directory: allow
 ---

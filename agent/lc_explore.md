@@ -1,7 +1,7 @@
 ---
-description: Read-only research subagent. Finds files, searches code, understands
+description: "[LOCAL qwen38] Read-only research subagent. Finds files, searches code, understands
   architecture, and answers questions about the codebase. Returns findings with file
-  paths and line numbers.
+  paths and line numbers."
 mode: subagent
 permission:
   "*": deny

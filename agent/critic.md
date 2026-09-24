@@ -9,7 +9,7 @@ permission:
   grep: allow
   webfetch: allow
   websearch: deny
-  bash:
+  shell:
     "*": allow
     ">": deny
     ">>": deny
@@ -44,7 +44,7 @@ permission:
     "git stash *": deny
   edit: deny
   write: deny
-  task: deny
+  subagent: deny
   todowrite: deny
 ---
 

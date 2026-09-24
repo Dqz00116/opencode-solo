@@ -9,10 +9,10 @@ permission:
   read: allow
   grep: allow
   glob: allow
-  bash: deny
+  shell: deny
   edit: deny
   write: deny
-  task: deny
+  subagent: deny
   todowrite: deny
 ---
 # Scout — External Web Reconnaissance
