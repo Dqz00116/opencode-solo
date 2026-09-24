@@ -132,19 +132,10 @@ cp opencode-solo/opencode.jsonc.example ~/.config/opencode/opencode.jsonc
 
 编辑文件——把占位符替换成你自己的模型。详见 [opencode.jsonc.example](./opencode.jsonc.example)。
 
-**3. 启用后台子代理**（推荐）
+> [!NOTE]
+> 后台子代理是 opencode v2 的原生能力——task 工具 `background` 参数 / 命令 frontmatter `subagent: true`，无需环境变量。
 
-```bash
-# macOS / Linux
-export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
-```
-
-```powershell
-# Windows PowerShell（持久设置，需重启终端）
-[System.Environment]::SetEnvironmentVariable("OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS", "true", "User")
-```
-
-**4. 启动 opencode，选择 `solo` agent。**
+**3. 启动 opencode，选择 `solo` agent。**
 
 ### 工作流程
 
@@ -173,7 +164,14 @@ agent/
 ├── verify.md       条件对抗验证——仅用于大/高风险改动
 ├── general.md      兜底——研究 + 执行一体
 ├── observer.md     视觉——截图、图表、图像分析
-└── reviewer.md     代码审查——质量、架构、约定
+├── reviewer.md     代码审查——质量、架构、约定
+├── research.md     研究编排器——契约 → 收集 → 综合 → 批判
+├── survey.md       内部代码勘察——[code:file:L] 指针
+├── scout.md        外部网络侦察——[web:url] 指针
+├── critic.md       对抗性验证——重跑查询、粘贴原始输出
+├── writer.md       报告撰写——写入 docs/research/**
+├── lc_editor.md    本地 qwen38 模型的 editor
+└── lc_explore.md   本地 qwen38 模型的 explore
 ```
 
 所有 `.md` 文件只包含行为定义（提示词、权限、模式）。模型在 `opencode.jsonc` 中单独配置。
@@ -182,3 +180,4 @@ agent/
 
 - [opencode](https://opencode.ai)
 - 至少配置一个 LLM provider
+- 本配置面向 opencode v2（v1.18+ 亦可运行，权限动作名自动兼容）

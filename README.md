@@ -124,19 +124,10 @@ cp opencode-solo/opencode.jsonc.example ~/.config/opencode/opencode.jsonc
 
 Edit the file — replace placeholders with your own models. See [opencode.jsonc.example](./opencode.jsonc.example).
 
-**3. Enable background subagents** (recommended)
+> [!NOTE]
+> Background subagents are native in opencode v2 — task tool `background` parameter / command frontmatter `subagent: true`. No environment variable needed.
 
-```bash
-# macOS / Linux
-export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
-```
-
-```powershell
-# Windows PowerShell (persistent, restart terminal after)
-[System.Environment]::SetEnvironmentVariable("OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS", "true", "User")
-```
-
-**4. Launch opencode and select the `solo` agent.**
+**3. Launch opencode and select the `solo` agent.**
 
 ### Workflow
 
@@ -165,7 +156,14 @@ agent/
 ├── verify.md       Conditional adversarial verification — only for large/risky changes
 ├── general.md      Fallback — research + execution in one agent
 ├── observer.md     Vision — screenshots, diagrams, image analysis
-└── reviewer.md     Code review — quality, architecture, conventions
+├── reviewer.md     Code review — quality, architecture, conventions
+├── research.md     Research orchestrator — contract, gather, synthesize, critique
+├── survey.md       Internal code surveyor — [code:file:L] pointers
+├── scout.md        External web recon — [web:url] pointers
+├── critic.md       Adversarial verifier — re-runs queries, pastes raw output
+├── writer.md       Report composer — writes docs/research/**
+├── lc_editor.md    editor variant on local qwen38 model
+└── lc_explore.md   explore variant on local qwen38 model
 ```
 
 All `.md` files contain only behavior (prompt, permissions, mode). Models are configured separately in `opencode.jsonc`.
@@ -174,6 +172,7 @@ All `.md` files contain only behavior (prompt, permissions, mode). Models are co
 
 - [opencode](https://opencode.ai)
 - At least one LLM provider configured
+- Targets opencode v2 (v1.18+ also works — permission action names are auto-compatible)
 
 ## Research variant (`code-research` branch)
 

@@ -6,18 +6,18 @@
   // Map each agent to a model. Variant controls reasoning depth (provider-specific).
   // Recommended: max for solo/verify, high for reviewer/general, medium for explore/editor.
   // Tested with: deepseek/deepseek-v4-pro (strong) + deepseek/deepseek-v4-flash (fast)
-  "agent": {
-    "solo":     { "model": "your-provider/strong-model",  "variant": "max" },
-    "verify":   { "model": "your-provider/strong-model",  "variant": "max" },
-    "reviewer": { "model": "your-provider/strong-model",  "variant": "high" },
-    "general":  { "model": "your-provider/strong-model",  "variant": "high" },
-    "explore":  { "model": "your-provider/fast-model",    "variant": "medium" },
-    "editor":   { "model": "your-provider/fast-model",    "variant": "medium" },
+  "agents": {
+    "solo":     { "model": "your-provider/strong-model#max" },
+    "verify":   { "model": "your-provider/strong-model#max" },
+    "reviewer": { "model": "your-provider/strong-model#high" },
+    "general":  { "model": "your-provider/strong-model#high" },
+    "explore":  { "model": "your-provider/fast-model#medium" },
+    "editor":   { "model": "your-provider/fast-model#medium" },
     "observer": { "model": "your-provider/vision-model" },
-    "research": { "model": "your-provider/strong-model", "variant": "max" },
-    "critic":   { "model": "your-provider/strong-model", "variant": "high" },
-    "survey":   { "model": "your-provider/fast-model",   "variant": "medium" },
-    "scout":    { "model": "your-provider/fast-model",   "variant": "medium" },
-    "writer":   { "model": "your-provider/fast-model",   "variant": "medium" }
+    "research": { "model": "your-provider/strong-model#max" },
+    "critic":   { "model": "your-provider/strong-model#high" },
+    "survey":   { "model": "your-provider/fast-model#medium" },
+    "scout":    { "model": "your-provider/fast-model#medium" },
+    "writer":   { "model": "your-provider/fast-model#medium" }
   }
 }
