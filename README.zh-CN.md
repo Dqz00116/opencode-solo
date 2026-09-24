@@ -19,6 +19,8 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+> **Solo v2.0** —— 面向 opencode v2。原版（v1 兼容）请见 `main` 分支。
+
 ---
 
 ### 概述
@@ -179,3 +181,10 @@ agent/
 - [opencode](https://opencode.ai)
 - 至少配置一个 LLM provider
 - 本配置面向 opencode v2（v1.18+ 亦可运行，权限动作名自动兼容）
+
+## 版本线
+
+- `main` —— 原版（v1 兼容）分支
+- `v2` —— opencode v2 原生分支（当前分支）
+
+两条版本线均持续维护，并将继续接收更新与迭代。

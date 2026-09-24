@@ -19,6 +19,8 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+> **Solo v2.0** — for opencode v2. For the original v1-compatible release, see the `main` branch.
+
 ---
 
 ### Overview
@@ -193,3 +195,10 @@ This branch adds a **research** primary agent for investigative work (initially 
 - Both share the closed-loop, permission-gated, expert-orchestrates-fast-executes design.
 - Solo's own agents (solo/editor/verify/reviewer/explore) are kept unchanged on this branch — both modes remain usable.
 - Honest limitation: existence/structural claims reach Solo-level objective closure via raw query output; interpretive claims (patterns, intent) rely on expert judgment + confidence labeling and are explicitly separated in the report.
+
+## Version lines
+
+- `main` — the original v1-compatible line
+- `v2` — the opencode v2 native line (this branch)
+
+Both lines are actively maintained and will continue to receive updates and iterations.
