@@ -161,9 +161,7 @@ agent/
 ├── survey.md       Internal code surveyor — [code:file:L] pointers
 ├── scout.md        External web recon — [web:url] pointers
 ├── critic.md       Adversarial verifier — re-runs queries, pastes raw output
-├── writer.md       Report composer — writes docs/research/**
-├── lc_editor.md    editor variant on local qwen38 model
-└── lc_explore.md   explore variant on local qwen38 model
+└── writer.md       Report composer — writes docs/research/**
 ```
 
 All `.md` files contain only behavior (prompt, permissions, mode). Models are configured separately in `opencode.jsonc`.

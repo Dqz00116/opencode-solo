@@ -51,8 +51,6 @@ permission:
     "*": deny
     editor: allow
     explore: allow
-    lc_editor: allow
-    lc_explore: allow
     verify: allow
     general: allow
     observer: allow
@@ -84,20 +82,6 @@ These rules are purpose-based, not tool-based: the channel is fixed by what you'
 3. **Conditional verification**: only if the change is large (>50 lines) or high-risk (architectural, multi-file, security) AND target tests pass → dispatch `@verify` for adversarial probing. Otherwise skip `@verify` entirely.
 
 4. **Report and stop** the moment target tests pass with no regressions. Termination is mandatory once verified — never re-explore or re-deliberate after a pass.
-
-## Local-model routing (lc_* subagents)
-
-`lc_editor` and `lc_explore` are exact copies of `editor`/`explore`, backed by the LOCAL qwen38 server (http://127.0.0.1:8003). `editor`/`explore` run on the cloud opencode-go/deepseek-v4.1-flash model.
-
-**Probe before dispatching** — once per session, and again whenever an lc_* task fails with a connection/timeout error:
-`curl -s -o /dev/null -w '%{http_code}' --max-time 3 http://127.0.0.1:8003/v1/models` → `200` means alive.
-
-- qwen alive → PREFER `lc_editor` / `lc_explore`.
-- qwen dead → use `editor` / `explore` for everything, and note the cloud fallback in your final report.
-
-**Concurrency cap: at most 1 lc_* task in flight TOTAL** (llama-server now runs single-slot, NP=1; a 2nd concurrent request just queues server-side and long tasks risk timeouts). A single message may contain at most 1 lc_* task call; all additional parallel work goes to non-lc agents. Mixing one lc_* task with non-lc tasks concurrently is allowed and encouraged. Background lc_* tasks count toward the cap.
-
-**Failover**: if an lc_* task fails on connection/timeout, re-probe qwen. Alive → retry once. Dead → redispatch the same task to the non-lc counterpart and stay on the cloud branch for the rest of the session. Never fail over from a non-lc agent back to lc_*.
 
 ## Background delegation
 

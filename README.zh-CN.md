@@ -169,9 +169,7 @@ agent/
 ├── survey.md       内部代码勘察——[code:file:L] 指针
 ├── scout.md        外部网络侦察——[web:url] 指针
 ├── critic.md       对抗性验证——重跑查询、粘贴原始输出
-├── writer.md       报告撰写——写入 docs/research/**
-├── lc_editor.md    本地 qwen38 模型的 editor
-└── lc_explore.md   本地 qwen38 模型的 explore
+└── writer.md       报告撰写——写入 docs/research/**
 ```
 
 所有 `.md` 文件只包含行为定义（提示词、权限、模式）。模型在 `opencode.jsonc` 中单独配置。
