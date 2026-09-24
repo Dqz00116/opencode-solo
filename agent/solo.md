@@ -43,7 +43,7 @@ permission:
     "sls *": deny
   webfetch: deny
   websearch: deny
-  skill: deny
+  skill: allow
   lsp: deny
   question: allow
   todowrite: allow
