@@ -19,6 +19,8 @@
   <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
+> **Version lines**: `main` is the original v1-compatible line; the `v2` branch carries Solo v2.0 for opencode v2. Both lines are actively maintained and will continue to receive updates and iterations.
+
 ---
 
 ### Overview
